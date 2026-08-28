@@ -55,7 +55,7 @@ include_once __DIR__ . '/includes/navbar.php';
                     <div class="contact-icon"><i class="fab fa-github"></i></div>
                     <div>
                         <h4>GitHub</h4>
-                        <p><a href="https://github.com/muhammadkhardawi13" target="_blank">github khardawi</a></p>
+                        <p><a href="https://github.com/khardawi" target="_blank">github khardawi</a></p>
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ include_once __DIR__ . '/includes/navbar.php';
                             class="fab fa-whatsapp"></i></a>
                     <a href="https://instagram.com/mhmmd.khardawi" target="_blank" class="social-link instagram"><i
                             class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/muhammadkhardawi13" target="_blank" class="social-link github"><i
+                    <a href="https://github.com/khardawi" target="_blank" class="social-link github"><i
                             class="fab fa-github"></i></a>
                     <a href="https://linkedin.com/in/muhammadkhardawi" target="_blank" class="social-link linkedin"><i
                             class="fab fa-linkedin"></i></a>
