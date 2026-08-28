@@ -8,7 +8,7 @@ if (!defined('DB_HOST')) {
 
     // Konfigurasi website
     define('SITE_NAME', 'Muhammad Khardawi, S.Kom');
-    define('SITE_URL', 'http://localhost/portofolio-website');
+    define('SITE_URL', 'https://portofolio-website-eosin-rho.vercel.app');
 
     // Informasi Kontak
     define('PHONE', '081264294425');
