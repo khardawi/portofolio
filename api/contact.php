@@ -12,6 +12,17 @@ include_once 'includes/navbar.php';
             <p class="section-desc">Jangan ragu untuk menghubungi saya melalui kontak di bawah ini</p>
         </div>
 
+        <!-- Tampilkan pesan sukses/error -->
+        <?php if (isset($_GET['success'])): ?>
+        <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> Pesan berhasil dikirim!
+        </div>
+        <?php elseif (isset($_GET['error'])): ?>
+        <div class="alert alert-error">
+            <i class="fas fa-exclamation-circle"></i> Gagal mengirim pesan. Silahkan hubungi melalui kontak langsung.
+        </div>
+        <?php endif; ?>
+
         <div class="contact-wrapper">
             <div class="contact-info glass-card">
                 <h2>Informasi Kontak</h2>
@@ -105,5 +116,32 @@ include_once 'includes/navbar.php';
         </div>
     </div>
 </main>
+
+<style>
+.alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid #22c55e;
+    color: #22c55e;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
+.alert i {
+    font-size: 1.2rem;
+}
+</style>
 
 <?php include_once 'includes/footer.php'; ?>
