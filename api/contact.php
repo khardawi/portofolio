@@ -55,7 +55,7 @@ include_once __DIR__ . '/includes/navbar.php';
                     <div class="contact-icon"><i class="fab fa-github"></i></div>
                     <div>
                         <h4>GitHub</h4>
-                        <p><a href="https://github.com/muhammadkhardawi13" target="_blank">muhammadkhardawi13</a></p>
+                        <p><a href="https://github.com/muhammadkhardawi13" target="_blank">github khardawi</a></p>
                     </div>
                 </div>
 
@@ -116,32 +116,5 @@ include_once __DIR__ . '/includes/navbar.php';
         </div>
     </div>
 </main>
-
-<style>
-.alert {
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.alert-success {
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid #22c55e;
-    color: #22c55e;
-}
-
-.alert-error {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid #ef4444;
-    color: #ef4444;
-}
-
-.alert i {
-    font-size: 1.2rem;
-}
-</style>
 
 <?php include_once __DIR__ . '/includes/footer.php'; ?>

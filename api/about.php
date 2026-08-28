@@ -24,7 +24,7 @@ include_once __DIR__ . '/includes/navbar.php';
                         <span><i class="fas fa-phone"></i> 081264294425</span>
                         <span><i class="fas fa-envelope"></i> muhammadkhadawir@gmail.com</span>
                         <span><i class="fab fa-instagram"></i> @mhmmd.khardawi</span>
-                        <span><i class="fab fa-github"></i> github.com/muhammadkhardawi13</span>
+                        <span><i class="fab fa-github"></i> github khardawi</span>
                         <span><i class="fab fa-linkedin"></i> linkedin.com/in/muhammadkhardawi</span>
                     </div>
                     <p class="location"><i class="fas fa-map-marker-alt"></i> Lhokseumawe, Aceh Utara</p>
@@ -44,67 +44,6 @@ include_once __DIR__ . '/includes/navbar.php';
             <p>Unggul dalam komunikasi, bertanggung jawab, aktif di media sosial, dan memiliki minat tinggi dalam
                 penyelenggaraan acara, siap berperan secara produktif di lingkungan organizer struktural dan
                 kolaboratif.</p>
-        </div>
-
-        <!-- Pengalaman Kerja -->
-        <div class="experience-section glass-card">
-            <h2><i class="fas fa-briefcase"></i> Pengalaman Kerja</h2>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-code"></i></div>
-                    <div class="exp-title">
-                        <h3>Chief & Web Development</h3>
-                        <span class="exp-company">Studi Independen (Orbit Kampus Artificial Intelligence 4Jobs) PT Orbit
-                            Ventura Indonesia - Orbit Future Academy (OFA)</span>
-                        <span class="exp-date">Feb 2024 - Jun 2024</span>
-                    </div>
-                </div>
-                <ul class="exp-desc">
-                    <li>Memimpin proyek, membagi tugas, dan mengelola tim hingga laporan akhir selesai</li>
-                    <li>Mengerjakan coding backend dan pengembangan web untuk proyek pendeteksian kualitas tomat</li>
-                    <li>Menguasai analisis sentimen, deployment model NLP, dan algoritma</li>
-                    <li>Terlibat aktif mengikuti mentoring, koordinasi tim, serta sesi pembelajaran rutin dan evaluasi
-                        proyek</li>
-                    <li>Mengembangkan soft skills komunikasi, manajemen waktu, leadership, dan problem solving</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <div class="exp-title">
-                        <h3>Intern - Div. Perencanaan penyusunan program</h3>
-                        <span class="exp-company">Inspektorat Aceh Utara - Lhokseumawe, Aceh</span>
-                        <span class="exp-date">Oct 2023 - Dec 2023</span>
-                    </div>
-                </div>
-                <ul class="exp-desc">
-                    <li>Membantu mengumpulkan informasi untuk memastikan unit kerja mematuhi peraturan dan standar yang
-                        berlaku</li>
-                    <li>Menyediakan laporan dan melaporkan hasil inspeksi kepada otoritas yang berwenang</li>
-                    <li>Terlibat aktif dalam mengawasi dan audit masyarakat untuk memastikan kerjasama yang baik</li>
-                    <li>Menjaga integritas dan profesionalisme dalam melakukan tugas-tugas inspeksi</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <div class="exp-icon"><i class="fas fa-tint"></i></div>
-                    <div class="exp-title">
-                        <h3>Staff Magang Administrasi</h3>
-                        <span class="exp-company">Perusahaan Umum Daerah Air Minum (PERUMDA) Tirta Pase
-                            Lhokseumawe</span>
-                        <span class="exp-date">Feb 2020 - May 2020</span>
-                    </div>
-                </div>
-                <ul class="exp-desc">
-                    <li>Mengatur dan menyusun arsip berkas administrasi meteran air dan pengelolaan dokumen</li>
-                    <li>Mengelola dan merekap data pelanggan pengguna air bersih PERUMDA</li>
-                    <li>Menyediakan pelayanan yang responsif terhadap staff eksekutif lapangan</li>
-                    <li>Pengecekan data harian meteran air Aceh Utara - Lhokseumawe</li>
-                </ul>
-            </div>
         </div>
 
         <!-- Pendidikan -->

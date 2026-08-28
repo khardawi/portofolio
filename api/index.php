@@ -43,7 +43,7 @@ include_once __DIR__ . '/includes/navbar.php';
                     </div>
 
                     <div class="hero-buttons">
-                        <a href="/api/assets/cv.pdf" class="btn btn-primary" download>
+                        <a href="/api/assets/cv.pdf" class="btn btn-primary" download="CV_Muhammad_Khardawi.pdf">
                             <i class="fas fa-download"></i> Download CV
                         </a>
                         <a href="about.php" class="btn btn-secondary">
@@ -67,7 +67,7 @@ include_once __DIR__ . '/includes/navbar.php';
             <div class="info-cards">
                 <div class="info-card">
                     <i class="fas fa-phone"></i>
-                    <h4>Telepon</h4>
+                    <h4>Telepon/wa</h4>
                     <p><a href="tel:081264294425">081264294425</a></p>
                 </div>
                 <div class="info-card">
@@ -83,7 +83,7 @@ include_once __DIR__ . '/includes/navbar.php';
                 <div class="info-card">
                     <i class="fab fa-github"></i>
                     <h4>GitHub</h4>
-                    <p><a href="https://github.com/muhammadkhardawi13" target="_blank">muhammadkhardawi13</a></p>
+                    <p><a href="https://github.com/khardawi" target="_blank">github khardawi</a></p>
                 </div>
             </div>
         </div>
