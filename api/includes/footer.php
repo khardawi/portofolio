@@ -41,7 +41,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="js/script.js"></script>
+    <script src="/api/js/script.js"></script>
     </body>
 
     </html>

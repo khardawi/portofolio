@@ -15,7 +15,7 @@ include_once __DIR__ . '/includes/navbar.php';
         <div class="profile-summary glass-card">
             <div class="profile-summary-grid">
                 <div class="profile-summary-image">
-                    <img src="assets/images/foto-1.jpg" alt="Muhammad Khardawi">
+                    <img src="/api/assets/images/foto-1.jpg" alt="Muhammad Khardawi">
                 </div>
                 <div class="profile-summary-text">
                     <h2>Muhammad Khardawi, S.Kom</h2>

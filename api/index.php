@@ -43,7 +43,7 @@ include_once __DIR__ . '/includes/navbar.php';
                     </div>
 
                     <div class="hero-buttons">
-                        <a href="assets/cv.pdf" class="btn btn-primary" download>
+                        <a href="/api/assets/cv.pdf" class="btn btn-primary" download>
                             <i class="fas fa-download"></i> Download CV
                         </a>
                         <a href="about.php" class="btn btn-secondary">
@@ -54,7 +54,7 @@ include_once __DIR__ . '/includes/navbar.php';
 
                 <div class="hero-image">
                     <div class="profile-wrapper">
-                        <img src="assets/images/foto-1.jpg" alt="Muhammad Khardawi" class="profile-img">
+                        <img src="/api/assets/images/foto-1.jpg" alt="Muhammad Khardawi" class="profile-img">
                         <div class="profile-ring"></div>
                     </div>
                 </div>

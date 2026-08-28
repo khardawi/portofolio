@@ -14,7 +14,7 @@ include_once __DIR__ . '/includes/navbar.php';
 
         <div class="portfolio-grid">
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-2.jpg" alt="Foto Kegiatan 2">
+                <img src="/api/assets/images/foto-2.jpg" alt="Foto Kegiatan 2">
                 <div class="portfolio-overlay">
                     <h3>Leadership Ecoturism Expedition</h3>
                     <p>Aceh Tengah Takengon, 2024</p>
@@ -23,7 +23,7 @@ include_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-3.jpg" alt="Foto Kegiatan 3">
+                <img src="/api/assets/images/foto-3.jpg" alt="Foto Kegiatan 3">
                 <div class="portfolio-overlay">
                     <h3>Desa Binaan Mahasiswa Fakultas Teknik</h3>
                     <p>Bener Meriah, 2024</p>
@@ -32,7 +32,7 @@ include_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-4.jpg" alt="Foto Kegiatan 4">
+                <img src="/api/assets/images/foto-4.jpg" alt="Foto Kegiatan 4">
                 <div class="portfolio-overlay">
                     <h3>GenBI Komisariat Unimal</h3>
                     <p>Kegiatan Sosial & Pengabdian</p>
@@ -41,7 +41,7 @@ include_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-5.jpg" alt="Foto Kegiatan 5">
+                <img src="/api/assets/images/foto-5.jpg" alt="Foto Kegiatan 5">
                 <div class="portfolio-overlay">
                     <h3>Pekan QRIS Nasional</h3>
                     <p>Lhokseumawe, 2025</p>
@@ -50,7 +50,7 @@ include_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-6.jpg" alt="Foto Kegiatan 6">
+                <img src="/api/assets/images/foto-6.jpg" alt="Foto Kegiatan 6">
                 <div class="portfolio-overlay">
                     <h3>Relawan Bencana</h3>
                     <p>Banjir Bandang Sumatera, 2026</p>
@@ -59,7 +59,7 @@ include_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <div class="portfolio-item glass-card">
-                <img src="assets/images/foto-1.jpg" alt="Foto Profil">
+                <img src="/api/assets/images/foto-1.jpg" alt="Foto Profil">
                 <div class="portfolio-overlay">
                     <h3>Muhammad Khardawi, S.Kom</h3>
                     <p>Full Stack Developer</p>

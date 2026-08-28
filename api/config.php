@@ -59,6 +59,5 @@ if (!defined('DB_HOST')) {
 // ============================================
 // BASE PATH UNTUK INCLUDE
 // ============================================
-// Untuk memudahkan include file
 $base_path = __DIR__ . '/';
 ?>

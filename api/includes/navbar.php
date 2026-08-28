@@ -34,7 +34,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 </a>
             </li>
             <li class="nav-cta">
-                <a href="assets/cv.pdf" class="btn-cv" download>
+                <a href="/api/assets/cv.pdf" class="btn-cv" download>
                     <i class="fas fa-download"></i> Download CV
                 </a>
             </li>
