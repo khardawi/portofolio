@@ -1,7 +1,7 @@
 <?php 
-include_once 'config.php'; 
-include_once 'includes/header.php'; 
-include_once 'includes/navbar.php'; 
+include_once __DIR__ . '/config.php'; 
+include_once __DIR__ . '/includes/header.php'; 
+include_once __DIR__ . '/includes/navbar.php'; 
 ?>
 
 <main class="contact-page">
@@ -144,4 +144,4 @@ include_once 'includes/navbar.php';
 }
 </style>
 
-<?php include_once 'includes/footer.php'; ?>
+<?php include_once __DIR__ . '/includes/footer.php'; ?>

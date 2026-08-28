@@ -14,20 +14,11 @@ if (!defined('DB_HOST')) {
     
     if ($is_vercel) {
         // ===== PRODUCTION (Vercel) =====
-        // Menggunakan environment variable dari Vercel
-        // atau matikan koneksi database untuk sementara
-        
-        // Opsi 1: Tanpa Database (untuk tampilan statis)
+        // Tanpa Database untuk sementara
         define('DB_HOST', '');
         define('DB_USER', '');
         define('DB_PASS', '');
         define('DB_NAME', '');
-        
-        // Opsi 2: Jika menggunakan database online (hosting)
-        // define('DB_HOST', 'sql.xxx.hosting.com');
-        // define('DB_USER', 'xxxxx_portofolio');
-        // define('DB_PASS', 'password_anda');
-        // define('DB_NAME', 'xxxxx_portofolio_db');
         
     } else {
         // ===== LOCAL (Laragon) =====
@@ -64,4 +55,10 @@ if (!defined('DB_HOST')) {
 
     date_default_timezone_set('Asia/Jakarta');
 }
+
+// ============================================
+// BASE PATH UNTUK INCLUDE
+// ============================================
+// Untuk memudahkan include file
+$base_path = __DIR__ . '/';
 ?>
