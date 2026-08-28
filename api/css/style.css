@@ -47,7 +47,9 @@ body {
     background: linear-gradient(135deg, #6C63FF, #a855f7, #ec4899);
     background-size: 300% 300%;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     animation: gradientMove 4s ease-in-out infinite;
 }
 
@@ -130,6 +132,7 @@ body {
 .navbar {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
     position: fixed;
     width: 100%;
@@ -161,10 +164,13 @@ body {
 }
 
 .brand-icon { font-size: 1.6rem; }
+
 .brand-text {
     background: linear-gradient(135deg, #6C63FF, #a855f7);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .nav-menu {
@@ -1166,6 +1172,7 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     animation: fadeIn 0.3s;
 }
 
