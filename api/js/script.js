@@ -1,7 +1,34 @@
-// ===== TYPING EFFECT =====
+// ============================================
+// SCROLL REVEAL - Dari Kiri ke Kanan
+// ============================================
+const revealElements = document.querySelectorAll('.glass-card, .info-card, .portfolio-item, .experience-item, .org-item, .achievement-item');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            // Tambahkan delay berdasarkan urutan
+            const delay = index * 0.1;
+            setTimeout(() => {
+                entry.target.classList.add('revealed');
+            }, delay * 1000);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+revealElements.forEach(el => {
+    el.classList.add('reveal-left');
+    revealObserver.observe(el);
+});
+
+// ============================================
+// TYPING EFFECT
+// ============================================
 const typingElement = document.getElementById('typingText');
 if (typingElement) {
-    const words = ['Full Stack Developer', 'UI/UX Enthusiast', 'Tech Explorer', 'Problem Solver'];
+    const words = ['Full Stack Developer', 'UI/UX Enthusiast', 'Tech Explorer', 'Problem Solver', 'Innovator'];
     let wordIndex = 0, charIndex = 0, isDeleting = false;
 
     function typeEffect() {
@@ -27,7 +54,9 @@ if (typingElement) {
     typeEffect();
 }
 
-// ===== COUNTER ANIMATION =====
+// ============================================
+// COUNTER ANIMATION
+// ============================================
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     counters.forEach(counter => {
@@ -49,7 +78,9 @@ function animateCounters() {
 
 document.addEventListener('DOMContentLoaded', animateCounters);
 
-// ===== FLOATING BUTTON =====
+// ============================================
+// FLOATING BUTTON
+// ============================================
 const floatBtn = document.getElementById('floatBtn');
 
 window.addEventListener('scroll', function() {
@@ -60,7 +91,95 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ===== SMOOTH SCROLL =====
+// ============================================
+// MODAL - Untuk Detail Foto
+// ============================================
+function openModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const modalBody = document.getElementById('modalBody');
+    
+    const projects = {
+        project1: {
+            title: '🏔️ Leadership Ecoturism Expedition #2',
+            desc: 'Terpilih dari 700+ pendaftar untuk menjadi salah satu anggota Top Fully Funded dan diamanahkan sebagai Ketua Divisi Pariwisata & Ekonomi Kreatif. Opening Ceremonial Visit Bur Telege, ID – MY – TH. Koordinator pembuatan Daifuku Mochikop avocado, Pastisipan Kobee Mask coffee, Koordinator pembuatan sabun cuci piring, Anggota pembuatan kopi jahe, Koordinator pembuatan kripik labu siam, Persembahan atraksi tari budaya, suku & Nusantara, Closing Ecotourism & UMKM FIELD TRIP, Museum Gayo, Lukup Penalam, Kapal wisata, Arum jeram.',
+            image: '/api/assets/images/foto-2.jpg',
+            tech: ['Leadership', 'Tourism', 'UMKM', 'Culture']
+        },
+        project2: {
+            title: '🏡 Desa Binaan Mahasiswa Fakultas Teknik (DESBIMTEK)',
+            desc: 'Sebagai Sekretaris. Anggota Pelatihan sanggar seni tari adat gayo siswa/i se desa pondok baru, Panitia Bimbingan mengaji di balai (TPA) se tempat, Anggota Apotik hidup kolaborasi PKK Pondok baru, Panitia Pengolahan limbah sayur pupuk cair organic (POC), Panitia les privat anak se desa Pondok Baru, Gotong royong kolaborasi Babinsa Pondok baru, Delegasi Sosialisasi & aksi clean Up Goes to school SMP N 1 Bandar, Juri Lomba Pekan Kreativitas Siswa (PKS) se Desa Pondok Baru, Team mendemonstrasikan alat pencacah dan pelebur sampah menjadi paving block bersama warga setempat.',
+            image: '/api/assets/images/foto-3.jpg',
+            tech: ['Pengabdian', 'Sosial', 'Edukasi', 'Lingkungan']
+        },
+        project3: {
+            title: '🤝 Generasi Baru Indonesia (GENBI Komisariat Unimal)',
+            desc: 'Penerima BEASISWA BANK INDONESIA sekaligus perpanjangan tangan dari Bank Indonesia Wilayah Lhokseumawe. Terlibat dalam berbagai kegiatan: Family Gathering, Training of Trainers Millenial, Pekan QRIS Nasional, Saweu Syedara & Pengabdian Masyarakat, Clean Up Lingkungan, Apotek Hidup, Sosialisasi CBP & CIKUR, Leadership Camp, Beach Clean Up, Unlocking BI Scholarship, SERAMBI Festival Ekonomi Syariah.',
+            image: '/api/assets/images/foto-4.jpg',
+            tech: ['Organisasi', 'Bank Indonesia', 'Pengabdian', 'Sosial']
+        },
+        project4: {
+            title: '🏆 Pekan QRIS Nasional (PQN) Lhokseumawe 2025',
+            desc: 'Juara 1 Lomba Estafet QRIS Kategori E-Wallet dan Juara 1 Lomba Musical Chair pada ajang Pekan QRIS Nasional (PQN) Lhokseumawe. Merupakan delegasi dan panitia dalam berbagai kegiatan QRIS dan literasi keuangan.',
+            image: '/api/assets/images/foto-5.jpg',
+            tech: ['QRIS', 'Literasi Keuangan', 'Kompetisi', 'Juara 1']
+        },
+        project5: {
+            title: '🆘 Relawan Bencana - Banjir Bandang Sumatera',
+            desc: 'Delegasi Team Survey Unimal Teknik (Informatika) Pasca Banjir Bandang Sumatera. Terlibat aktif dalam penanganan bencana dan pengabdian masyarakat pada saat bencana alam.',
+            image: '/api/assets/images/foto-6.jpg',
+            tech: ['Relawan', 'Bencana', 'Pengabdian', 'Sosial']
+        },
+        project6: {
+            title: '💻 Muhammad Khardawi, S.Kom',
+            desc: 'Lulusan Teknik Informatika Universitas Malikussaleh dengan IPK 3.74/4.00. Penerima Beasiswa BANK INDONESIA. Full Stack Developer dengan pengalaman di bidang pengembangan web, organisasi, dan pengabdian masyarakat. Memiliki rekam jejak yang kuat dalam kegiatan organisasi dan terlibat aktif pada ranah sosial.',
+            image: '/api/assets/images/foto-1.jpg',
+            tech: ['Full Stack', 'PHP', 'JavaScript', 'UI/UX']
+        }
+    };
+
+    const project = projects[projectId];
+    if (project) {
+        modalBody.innerHTML = `
+            <h2 class="modal-title">${project.title}</h2>
+            <img src="${project.image}" alt="${project.title}" class="modal-image">
+            <p class="modal-desc">${project.desc}</p>
+            <div class="modal-tech">
+                ${project.tech.map(t => `<span class="modal-tech-tag">${t}</span>`).join('')}
+            </div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn btn-primary" onclick="closeModal()">Tutup</button>
+            </div>
+        `;
+    }
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal klik di luar
+window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+};
+
+// Close modal dengan tombol ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// ============================================
+// SMOOTH SCROLL
+// ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -71,14 +190,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== CLOSE MOBILE MENU =====
-document.addEventListener('click', function(e) {
-    const menu = document.getElementById('navMenu');
-    const hamburger = document.getElementById('hamburger');
-    if (menu && !menu.contains(e.target) && !hamburger?.contains(e.target)) {
-        menu.classList.remove('active');
-        hamburger?.classList.remove('active');
-    }
-});
-
-console.log('🚀 Portofolio Muhammad Khardawi siap!');
+console.log('🚀 Portofolio Muhammad Khardawi - Tema Emas Mewah!');
