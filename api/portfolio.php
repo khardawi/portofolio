@@ -6,76 +6,85 @@ include_once __DIR__ . '/includes/navbar.php';
 
 <main class="portfolio-page">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <span class="section-subtitle">PORTFOLIO</span>
             <h1 class="page-title">Galeri <span class="gradient-text">Kegiatan</span></h1>
             <p class="section-desc">Klik pada foto untuk melihat detail lengkap</p>
         </div>
 
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project1')">
-                <img src="/api/assets/images/foto-2.jpg" alt="Leadership Ecoturism Expedition">
-                <div class="portfolio-overlay">
-                    <h3>Leadership Ecoturism Expedition</h3>
-                    <p>Aceh Tengah Takengon, 2024</p>
-                    <span class="portfolio-tag">🏔️ Ekspedisi</span>
-                    <button class="btn btn-small">Lihat Detail</button>
-                </div>
-            </div>
+        <!-- Split Button Group -->
+        <div class="btn-group split"
+            style="margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            <button class="btn btn-primary zoom-item" onclick="filterPortfolio('all')">Semua</button>
+            <button class="btn btn-secondary zoom-item" onclick="filterPortfolio('organisasi')">Organisasi</button>
+            <button class="btn btn-outline zoom-item" onclick="filterPortfolio('prestasi')">Prestasi</button>
+            <button class="btn btn-light zoom-item" onclick="filterPortfolio('relawan')">Relawan</button>
+        </div>
 
-            <!-- Project 2 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project2')">
-                <img src="/api/assets/images/foto-3.jpg" alt="Desa Binaan Mahasiswa">
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Project 1 - Organisasi -->
+            <div class="portfolio-item zoom-item" data-category="organisasi" onclick="openModal('project3')">
+                <img src="/api/assets/images/foto-4.jpg" alt="GenBI Komisariat Unimal" loading="lazy">
                 <div class="portfolio-overlay">
-                    <h3>Desa Binaan Mahasiswa Fakultas Teknik</h3>
-                    <p>Bener Meriah, 2024</p>
-                    <span class="portfolio-tag">🏡 Pengabdian</span>
-                    <button class="btn btn-small">Lihat Detail</button>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project3')">
-                <img src="/api/assets/images/foto-4.jpg" alt="GenBI Komisariat Unimal">
-                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">🤝 Organisasi</span>
                     <h3>GenBI Komisariat Unimal</h3>
                     <p>Kegiatan Sosial & Pengabdian</p>
-                    <span class="portfolio-tag">🤝 Organisasi</span>
-                    <button class="btn btn-small">Lihat Detail</button>
+                    <button class="btn">Lihat Detail</button>
                 </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project4')">
-                <img src="/api/assets/images/foto-5.jpg" alt="Pekan QRIS Nasional">
+            <!-- Project 2 - Prestasi -->
+            <div class="portfolio-item zoom-item" data-category="prestasi" onclick="openModal('project4')">
+                <img src="/api/assets/images/foto-5.jpg" alt="Pekan QRIS Nasional" loading="lazy">
                 <div class="portfolio-overlay">
+                    <span class="portfolio-tag">🏆 Prestasi</span>
                     <h3>Pekan QRIS Nasional</h3>
                     <p>Lhokseumawe, 2025</p>
-                    <span class="portfolio-tag">🏆 Juara 1</span>
-                    <button class="btn btn-small">Lihat Detail</button>
+                    <button class="btn">Lihat Detail</button>
                 </div>
             </div>
 
-            <!-- Project 5 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project5')">
-                <img src="/api/assets/images/foto-6.jpg" alt="Relawan Bencana">
+            <!-- Project 3 - Organisasi -->
+            <div class="portfolio-item zoom-item" data-category="organisasi" onclick="openModal('project1')">
+                <img src="/api/assets/images/foto-2.jpg" alt="Leadership Ecoturism Expedition" loading="lazy">
                 <div class="portfolio-overlay">
+                    <span class="portfolio-tag">🏔️ Ekspedisi</span>
+                    <h3>Leadership Ecoturism</h3>
+                    <p>Aceh Tengah Takengon, 2024</p>
+                    <button class="btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Project 4 - Relawan -->
+            <div class="portfolio-item zoom-item" data-category="relawan" onclick="openModal('project5')">
+                <img src="/api/assets/images/foto-6.jpg" alt="Relawan Bencana" loading="lazy">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">🆘 Relawan</span>
                     <h3>Relawan Bencana</h3>
                     <p>Banjir Bandang Sumatera, 2026</p>
-                    <span class="portfolio-tag">🆘 Relawan</span>
-                    <button class="btn btn-small">Lihat Detail</button>
+                    <button class="btn">Lihat Detail</button>
                 </div>
             </div>
 
-            <!-- Project 6 -->
-            <div class="portfolio-item glass-card" onclick="openModal('project6')">
-                <img src="/api/assets/images/foto-1.jpg" alt="Muhammad Khardawi">
+            <!-- Project 5 - Organisasi -->
+            <div class="portfolio-item zoom-item" data-category="organisasi" onclick="openModal('project2')">
+                <img src="/api/assets/images/foto-3.jpg" alt="Desa Binaan Mahasiswa" loading="lazy">
                 <div class="portfolio-overlay">
+                    <span class="portfolio-tag">🏡 Pengabdian</span>
+                    <h3>Desa Binaan Mahasiswa FT</h3>
+                    <p>Bener Meriah, 2024</p>
+                    <button class="btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Project 6 - Profil -->
+            <div class="portfolio-item zoom-item" data-category="all" onclick="openModal('project6')">
+                <img src="/api/assets/images/foto-1.jpg" alt="Muhammad Khardawi" loading="lazy">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-tag">💻 Profil</span>
                     <h3>Muhammad Khardawi, S.Kom</h3>
                     <p>Full Stack Developer</p>
-                    <span class="portfolio-tag">💻 Profil</span>
-                    <button class="btn btn-small">Lihat Detail</button>
+                    <button class="btn">Lihat Detail</button>
                 </div>
             </div>
         </div>
@@ -84,12 +93,23 @@ include_once __DIR__ . '/includes/navbar.php';
 
 <!-- ===== MODAL ===== -->
 <div id="projectModal" class="modal">
-    <div class="modal-content glass-card">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <div id="modalBody">
-            <!-- Konten akan diisi oleh JavaScript -->
-        </div>
+    <div class="modal-content" id="modalBody">
+        <!-- Konten akan diisi oleh JavaScript -->
     </div>
 </div>
+
+<script>
+function filterPortfolio(category) {
+    const items = document.querySelectorAll('.portfolio-item');
+    items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeInUp 0.5s ease-out';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+</script>
 
 <?php include_once __DIR__ . '/includes/footer.php'; ?>

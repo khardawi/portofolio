@@ -1,9 +1,23 @@
 // ============================================
-// CUSTOM CURSOR - Anak Panah Mewah
+// KURSUSUR BEREKOR - Ekor Mengikuti Kursor
 // ============================================
-const cursor = document.getElementById('customCursor');
+const dot = document.getElementById('cursorDot');
+const trails = [
+    document.getElementById('cursorTrail1'),
+    document.getElementById('cursorTrail2'),
+    document.getElementById('cursorTrail3'),
+    document.getElementById('cursorTrail4'),
+    document.getElementById('cursorTrail5')
+];
+
 let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
+let dotX = 0, dotY = 0;
+let trailPositions = [];
+
+// Inisialisasi posisi trail
+for (let i = 0; i < trails.length; i++) {
+    trailPositions.push({ x: 0, y: 0 });
+}
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -11,54 +25,93 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.08;
-    cursorY += (mouseY - cursorY) * 0.08;
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
+    // Dot utama
+    dotX += (mouseX - dotX) * 0.12;
+    dotY += (mouseY - dotY) * 0.12;
+    dot.style.left = dotX + 'px';
+    dot.style.top = dotY + 'px';
+
+    // Trail (ekor) - masing-masing dengan delay berbeda
+    trailPositions[0].x += (mouseX - trailPositions[0].x) * 0.25;
+    trailPositions[0].y += (mouseY - trailPositions[0].y) * 0.25;
+    
+    for (let i = 1; i < trails.length; i++) {
+        const prev = trailPositions[i - 1];
+        trailPositions[i].x += (prev.x - trailPositions[i].x) * 0.3;
+        trailPositions[i].y += (prev.y - trailPositions[i].y) * 0.3;
+    }
+
+    for (let i = 0; i < trails.length; i++) {
+        trails[i].style.left = trailPositions[i].x + 'px';
+        trails[i].style.top = trailPositions[i].y + 'px';
+        // Ukuran trail semakin kecil
+        const size = 8 - (i * 1.2);
+        trails[i].style.width = Math.max(size, 2) + 'px';
+        trails[i].style.height = Math.max(size, 2) + 'px';
+        // Opacity semakin transparan
+        trails[i].style.opacity = 0.5 - (i * 0.08);
+    }
+
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-// Hover effect pada elemen interactif
-const interactiveElements = document.querySelectorAll('a, button, .btn, .portfolio-item, .info-card, .org-item, .achievement-item, .experience-item');
+// Hover effect
+const interactiveElements = document.querySelectorAll('a, button, .btn, .portfolio-item, .info-card, .zoom-item');
 
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
+        dot.classList.add('active');
     });
     el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('active');
+        dot.classList.remove('active');
     });
     el.addEventListener('mousedown', () => {
-        cursor.classList.add('click');
+        dot.classList.add('click');
     });
     el.addEventListener('mouseup', () => {
-        cursor.classList.remove('click');
+        dot.classList.remove('click');
     });
 });
 
 // Sembunyikan kursor di mobile
 if (window.innerWidth <= 768) {
-    cursor.style.display = 'none';
+    dot.style.display = 'none';
+    trails.forEach(t => t.style.display = 'none');
 }
+
+// ============================================
+// ZOOM IN/OUT - Untuk Item yang Diklik
+// ============================================
+const zoomItems = document.querySelectorAll('.zoom-item, .portfolio-item, .info-card');
+
+zoomItems.forEach(item => {
+    item.addEventListener('click', function() {
+        this.style.transition = 'transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)';
+        this.style.transform = 'scale(0.92)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 200);
+    });
+});
 
 // ============================================
 // SCROLL REVEAL
 // ============================================
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .glass-card, .info-card, .portfolio-item, .experience-item, .org-item, .achievement-item');
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .card-box, .card-circle');
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            const delay = index * 0.08;
+            const delay = index * 0.06;
             setTimeout(() => {
                 entry.target.classList.add('revealed');
             }, delay * 1000);
         }
     });
 }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
 });
 
 revealElements.forEach(el => {
@@ -139,7 +192,7 @@ function scrollToTop() {
 }
 
 // ============================================
-// MODAL - Untuk Detail Foto
+// MODAL
 // ============================================
 function openModal(projectId) {
     const modal = document.getElementById('projectModal');
@@ -210,7 +263,6 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Close modal klik di luar
 window.onclick = function(event) {
     const modal = document.getElementById('projectModal');
     if (event.target === modal) {
@@ -218,24 +270,10 @@ window.onclick = function(event) {
     }
 };
 
-// Close modal dengan tombol ESC
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
     }
-});
-
-// ============================================
-// SMOOTH SCROLL
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
 });
 
 // ============================================
@@ -269,4 +307,4 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-console.log('✨ Portofolio Muhammad Khardawi - Tema Klasik Mewah ✨');
+console.log('🚀 Portofolio Muhammad Khardawi - Tema Biru Segar dengan Kursor Berekor');
