@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved.</p>
+                <p>© <?php echo date('Y'); ?> <?php echo SITE_NAME; ?></p>
             </div>
         </div>
     </footer>

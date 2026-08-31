@@ -1,13 +1,56 @@
 // ============================================
-// SCROLL REVEAL - Dari Kiri ke Kanan
+// CUSTOM CURSOR - Anak Panah Mewah
 // ============================================
-const revealElements = document.querySelectorAll('.glass-card, .info-card, .portfolio-item, .experience-item, .org-item, .achievement-item');
+const cursor = document.getElementById('customCursor');
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.08;
+    cursorY += (mouseY - cursorY) * 0.08;
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover effect pada elemen interactif
+const interactiveElements = document.querySelectorAll('a, button, .btn, .portfolio-item, .info-card, .org-item, .achievement-item, .experience-item');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
+    el.addEventListener('mousedown', () => {
+        cursor.classList.add('click');
+    });
+    el.addEventListener('mouseup', () => {
+        cursor.classList.remove('click');
+    });
+});
+
+// Sembunyikan kursor di mobile
+if (window.innerWidth <= 768) {
+    cursor.style.display = 'none';
+}
+
+// ============================================
+// SCROLL REVEAL
+// ============================================
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .glass-card, .info-card, .portfolio-item, .experience-item, .org-item, .achievement-item');
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            // Tambahkan delay berdasarkan urutan
-            const delay = index * 0.1;
+            const delay = index * 0.08;
             setTimeout(() => {
                 entry.target.classList.add('revealed');
             }, delay * 1000);
@@ -19,7 +62,11 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 revealElements.forEach(el => {
-    el.classList.add('reveal-left');
+    if (!el.classList.contains('reveal') && 
+        !el.classList.contains('reveal-left') && 
+        !el.classList.contains('reveal-right')) {
+        el.classList.add('reveal');
+    }
     revealObserver.observe(el);
 });
 
@@ -140,13 +187,14 @@ function openModal(projectId) {
     const project = projects[projectId];
     if (project) {
         modalBody.innerHTML = `
+            <button class="modal-close" onclick="closeModal()">&times;</button>
             <h2 class="modal-title">${project.title}</h2>
-            <img src="${project.image}" alt="${project.title}" class="modal-image">
+            <img src="${project.image}" alt="${project.title}" class="modal-image" loading="lazy">
             <p class="modal-desc">${project.desc}</p>
             <div class="modal-tech">
                 ${project.tech.map(t => `<span class="modal-tech-tag">${t}</span>`).join('')}
             </div>
-            <div style="margin-top: 20px; text-align: center;">
+            <div style="margin-top: 25px; text-align: center;">
                 <button class="btn btn-primary" onclick="closeModal()">Tutup</button>
             </div>
         `;
@@ -190,4 +238,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('🚀 Portofolio Muhammad Khardawi - Tema Emas Mewah!');
+// ============================================
+// NAVBAR SCROLL EFFECT
+// ============================================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ============================================
+// MOBILE MENU
+// ============================================
+function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('navMenu').classList.toggle('active');
+}
+
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('navbar');
+    if (!nav.contains(e.target)) {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navMenu').classList.remove('active');
+    }
+});
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navMenu').classList.remove('active');
+    });
+});
+
+console.log('✨ Portofolio Muhammad Khardawi - Tema Klasik Mewah ✨');
